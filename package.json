@@ -1,0 +1,49 @@
+{
+  "name": "electron-builder-sample",
+  "version": "1.0.3",
+  "description": "A description of the application on what it does.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder build",
+    "publish": "electron-builder build -p always"
+  },
+  "author": "KorbsStudio",
+  "devDependencies": {
+    "electron": "^16.2.6",
+    "electron-builder": "^22.10.5"
+  },
+  "build": {
+    "appId": "com.korbsstudio.electron-sample",
+    "extraResources": "./extra",
+    "win": {
+      "target": "nsis",
+      "arch": ["arm64", "x64"],
+      "icon": "build/icons/icon.ico"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "build/icons/icon.icns"
+    },
+    "linux": {
+      "target": "AppImage",
+      "icon": "build/icons/icon.png",
+      "category": "Network",
+      "synopsis": "A very short description, like a slogan",
+      "description": "A description of the application on what it does."
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "KorbsStudio",
+        "repo": "electron-builder-sample",
+        "releaseType": "draft"
+      }
+    ]
+  },
+  "dependencies": {
+    "electron-log": "^4.4.1",
+    "electron-progressbar": "^2.0.1",
+    "electron-updater": "^4.3.9"
+  }
+}
